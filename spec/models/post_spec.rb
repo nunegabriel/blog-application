@@ -10,15 +10,15 @@ RSpec.describe Post, type: :model do
   it { is_expected.to validate_numericality_of(:comments_counter).is_greater_than_or_equal_to(0) }
   it { is_expected.to validate_numericality_of(:likes_counter).is_greater_than_or_equal_to(0) }
 
-  it "has the expected title" do
-    expect(subject.title).to eq("deadline day")
+  it 'has the expected title' do
+    expect(subject.title).to eq('deadline day')
   end
 
-  it "has the expected comments_counter" do
+  it 'has the expected comments_counter' do
     expect(subject.comments_counter).to eq(4)
   end
 
-  it "has the expected likes_counter" do
+  it 'has the expected likes_counter' do
     expect(subject.likes_counter).to eq(10)
   end
 end
