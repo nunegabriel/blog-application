@@ -13,5 +13,8 @@ RSpec.describe Like, type: :model do
       like.post_id = nil
       expect(like).to be_invalid
     end
+    it 'has a valid factory' do
+      expect(like).to be_valid
+    end
   end
 end
