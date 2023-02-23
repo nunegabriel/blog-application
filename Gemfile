@@ -74,3 +74,5 @@ group :test do
 end
 
 gem 'rspec-rails', '~> 4.0'
+
+gem 'rails-controller-testing'
