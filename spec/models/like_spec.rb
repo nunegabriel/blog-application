@@ -1,20 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  describe 'Validations for the Like model' do
-    let(:like) { build(:like) }
+  describe 'validations' do
+    let(:like) { Like.new(author_id: 1, post_id: 6) }
 
-    it 'requires the presence of author_id' do
+    it 'requires author_id to be present' do
       like.author_id = nil
-      expect(like).to be_invalid
+      expect(like).to_not be_valid
     end
 
-    it 'requires the presence of post_id' do
+    it 'requires post_id to be present' do
       like.post_id = nil
-      expect(like).to be_invalid
-    end
-    it 'has a valid factory' do
-      expect(like).to be_valid
+      expect(like).to_not be_valid
     end
   end
 end

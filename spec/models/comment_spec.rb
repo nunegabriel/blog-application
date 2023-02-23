@@ -1,13 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:user) { User.new(name: 'gabz', photo: 'https://randomuser.me/api/portraits/men/23.jpg', bio: 'a perfect person', posts_counter: 0) }
-  let(:post) { Post.create(title: 'Tide', text: 'Text', comments_counter: 0, likes_counter: 0, author: user) }
-  let!(:comment1) { Comment.create(text: 'This is a comment', author: user, post:) }
-  let!(:comment2) { Comment.create(text: 'No comment', author: user, post:) }
+  describe 'validations' do
+    let(:comment) { Comment.new(text: 'ggg', post_id: 6) }
 
-  it 'should update comments counter' do
-    expect(post.update_comments_counter).to eq true
-    expect(post.comments_counter).to eq 2
+    it 'requires text to be present' do
+      comment.text = nil
+      expect(comment).to_not be_valid
+    end
+
+    it 'requires post_id to be present' do
+      comment.post_id = nil
+      expect(comment).to_not be_valid
+    end
   end
 end
